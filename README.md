@@ -1,17 +1,17 @@
 # kubernetes
-# HTTPS:  https://github.com/admin-zoujing/kubernetes.git
-# SSH:  git@github.com:admin-zoujing/kubernetes.git
+# HTTPS:  https://github.com/admin-zoujing/K8S.git
+# SSH:  git@github.com:admin-zoujing/K8S.git
 
 # 1...或在命令行上创建一个新的存储库
 # echo "#kubernetes" >> README.md
 # git init
 # git add README.md
 # git commit -m"first commit"
-# git remote add origin https://github.com/admin-zoujing/kubernetes.git
+# git remote add origin https://github.com/admin-zoujing/K8S.git
 # git push -u origin master
 
 # 2...或从命令行推送现有存储库
-# git remote add origin https://github.com/admin-zoujing/kubernetes.git
+# git remote add origin https://github.com/admin-zoujing/K8S.git
 # git push -u origin master
 
 # 3...或从另一个存储库导入代码
@@ -24,5 +24,5 @@
 # git config --global user.name "git"
 # git config --global user.email "489548322@qq.com"
 
-# 6.error: failed to push some refs to 'https://github.com/admin-zoujing/kubernetes.git'
+# 6.error: failed to push some refs to 'https://github.com/admin-zoujing/K8S.git'
 # git pull --rebase origin master && git push -u origin master
