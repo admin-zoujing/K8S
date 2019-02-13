@@ -25,7 +25,7 @@ sed -i 's|KUBE_MASTER="--master=http://127.0.0.1:8080"|KUBE_MASTER="--master=htt
 sed -i 's|KUBE_API_ADDRESS="--insecure-bind-address=127.0.0.1"|KUBE_API_ADDRESS="--insecure-bind-address=0.0.0.0"|' /etc/kubernetes/apiserver 
 sed -i 's|# KUBE_API_PORT="--port=8080"|KUBE_API_PORT="--port=8080"|' /etc/kubernetes/apiserver 
 sed -i 's|# KUBELET_PORT="--kubelet-port=10250"|KUBELET_PORT="--kubelet-port=10250"|' /etc/kubernetes/apiserver 
-sed -i 's|KUBE_ETCD_SERVERS="--etcd-servers=http://127.0.0.1:2379"|KUBE_ETCD_SERVERS="--etcd-servers=http://192.168.8.50:2379"|' /etc/kubernetes/apiserver 
+sed -i 's|KUBE_ETCD_SERVERS="--etcd-servers=http://127.0.0.1:2379"|KUBE_ETCD_SERVERS="--etcd-servers=http://192.168.8.50:2379,http://192.168.8.51:2379"|' /etc/kubernetes/apiserver 
 sed -i 's|KUBE_ADMISSION_CONTROL="--admission-control=NamespaceLifecycle,NamespaceExists,LimitRanger,SecurityContextDeny,ServiceAccount,ResourceQuota"|KUBE_ADMISSION_CONTROL="--admission-control=NamespaceLifecycle,NamespaceExists,LimitRanger,SecurityContextDeny,ResourceQuota"|' /etc/kubernetes/apiserver 
 
 
