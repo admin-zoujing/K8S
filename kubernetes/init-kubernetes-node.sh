@@ -53,6 +53,12 @@ systemctl enable $SERVICES
 systemctl status $SERVICES
 done
 
+#报错details: (open /etc/docker/certs.d/registry.access.redhat.com/redhat-ca.crt: no such file or directory)
+yum -y install *rhsm*
+wget http://mirror.centos.org/centos/7/os/x86_64/Packages/python-rhsm-certificates-1.19.10-1.el7_4.x86_64.rpm
+rpm2cpio python-rhsm-certificates-1.19.10-1.el7_4.x86_64.rpm | cpio -iv --to-stdout ./etc/rhsm/ca/redhat-uep.pem | tee /etc/rhsm/ca/redhat-uep.pem
+docker pull registry.access.redhat.com/rhel7/pod-infrastructure:latest
+docker pull docker.io/rainf/kubernetes-dashboard-amd64 
 
 #docker --version 
 #docker images 
@@ -76,4 +82,14 @@ done
 #docker version 
 #docker run hello-world
 #$ docker run -it ubuntu bash
+
+#新增节点： 192.168.8.52:2380
+#集群节点上操作
+#etcdctl member add slave2  http://192.168.8.52:2380
+#etcdctl member list
+#etcdctl cluster-health
+#新增节点上启动
+#ETCD_INITIAL_CLUSTER_STATE="existing"
+#etcd --name slave2  --listen-client-urls http://0.0.0.0:2379 --advertise-client-urls http://192.168.8.52:2379 --listen-peer-urls http://192.168.8.52:2380 --initial-advertise-peer-urls http://192.168.8.52:2380 --initial-cluster-token etcd-cluster --initial-cluster-state existing --initial-cluster master=http://192.168.8.50:2380,slave1=http://192.168.8.51:2380,slave2=http://192.168.8.52:2380
+#/usr/lib/systemd/system/etcd.service服务启动不了，去掉"GOMAXPROCS=$(nproc)就行了。
 
