@@ -1,5 +1,5 @@
 #! /bin/bash
-#centos7.4 kubernetes-server安装脚本
+#centos7.4 kubernetes-server快速安装脚本
 
 #chmod -R 777 /usr/local/src/kubernetes
 #时间时区同步，修改主机名
