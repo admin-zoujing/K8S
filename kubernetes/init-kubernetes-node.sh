@@ -46,7 +46,7 @@ done
 sed -i 's|FLANNEL_ETCD_ENDPOINTS="http://127.0.0.1:2379"|FLANNEL_ETCD_ENDPOINTS="http://192.168.8.50:2379,,http://192.168.8.51:2379"|' /etc/sysconfig/flanneld 
 etcdctl --endpoints="http://192.168.8.50:2379,http://192.168.8.51:2379" set /atomic.io/network/config '{ "Network": "10.254.0.0/16","Backend": {"Type": "vxlan"} }'
 
-for SERVICES in docker etcd flanneld kube-proxy kubelet; do
+for SERVICES in etcd flanneld docker kube-proxy kubelet; do
 systemctl restart $SERVICES
 systemctl enable $SERVICES
 systemctl status $SERVICES
