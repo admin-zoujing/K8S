@@ -7,4 +7,6 @@ kubernetes简单安装，无需安全认证
 # kubectl get pods -o wide
 # kubectl get service
 # kubectl describe pod frontend-13mvv
+# kubectl delete pod frontend-13mvv
 # kubectl describe service frontend
+# kubectl delete service frontend
