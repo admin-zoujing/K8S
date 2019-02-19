@@ -10,3 +10,4 @@ kubernetes简单安装，无需安全认证
 # kubectl delete pod frontend-13mvv
 # kubectl describe service frontend
 # kubectl delete service frontend
+# kubectl scale rc frontend-13mvv --replicas=4
