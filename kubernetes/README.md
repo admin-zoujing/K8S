@@ -24,8 +24,7 @@ systemctl start nfs
 yum -y install nfs-utils 
 mount -t nfs 192.168.8.50:/data/volumes /mnt
 umount /mnt
-[root@master volumes]# cat pod-vol-nfs.yaml 
-apiVersion: v1
+echo 'apiVersion: v1
 kind: Pod
 metadata:
   name: pod-vol-nfs
@@ -42,7 +41,8 @@ spec:
     nfs:
       path: /data/volumes
       server: node3.com
-创建 kubectl apply -f pod-vol-nfs.yaml
+' > /etc/kubernetes/yaml/pod-vol-nfs.yaml 
+kubectl apply -f /etc/kubernetes/yaml/pod-vol-nfs.yaml 
  
 [root@node3 volumes]# cd /data/volumes/
 [root@node3 volumes]# vim index.html  输入：hello，word
