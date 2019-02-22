@@ -14,12 +14,10 @@ kubernetes简单安装，无需安全认证
 
 下面做一个基于NFS的存储，NFS支持多客户端的读写
 yum -y install nfs-utils
-mkdir /data/volumes -pv
+mkdir -pv /data/volumes 
 
 设置共享：
-vim /etc/exports
-/data/volumes 172.20.0.0/16(rw,no_root_squash)
-
+echo '/data/volumes 192.168.8.0/24(rw,no_root_squash)' > /etc/exports
 systemctl start nfs
 
 在node1和node2也安装nfs
