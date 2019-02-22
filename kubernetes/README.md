@@ -21,9 +21,8 @@ echo '/data/volumes 192.168.8.0/24(rw,no_root_squash)' > /etc/exports
 systemctl start nfs
 
 在node1和node2也安装nfs
-yum install nfs-utils -y
-
-mount -t nfs node3:/data/volumes /mnt
+yum -y install nfs-utils 
+mount -t nfs 192.168.8.50:/data/volumes /mnt
 umount /mnt
 [root@master volumes]# cat pod-vol-nfs.yaml 
 apiVersion: v1
