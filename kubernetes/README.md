@@ -44,10 +44,9 @@ spec:
 ' > /etc/kubernetes/yaml/pod-vol-nfs.yaml 
 kubectl apply -f /etc/kubernetes/yaml/pod-vol-nfs.yaml 
  
-[root@node3 volumes]# cd /data/volumes/
-[root@node3 volumes]# vim index.html  输入：hello，word
-查看kubectl get pods -o wide
-[root@master volumes]# curl 10.244.2.56
+echo 'hello，word' > /data/volumes/index.html
+kubectl get pods -o wide
+curl 10.244.2.56
 思考：这是一种利用NFS方式挂载到k8S内部的方式，有点，pod挂掉后数据还在，适合做存储。前提是每个节点都安装NFS
 #####################################################
 开始做PV和PVC实验
