@@ -40,7 +40,7 @@ spec:
   - name: html
     nfs:
       path: /data/volumes
-      server: node3.com
+      server: 192.168.8.52
 ' > /etc/kubernetes/yaml/pod-vol-nfs.yaml 
 kubectl apply -f /etc/kubernetes/yaml/pod-vol-nfs.yaml 
  
@@ -65,8 +65,7 @@ echo '/data/volumes/v1 192.168.8.0/24(rw,no_root_squash)
 查看PV的帮助文档: kuebctl explain pv
                  kubectl explain pv.spec.nfs
 创建yaml文件
-echo '
-apiVersion: v1
+echo 'apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: pv001
@@ -136,14 +135,14 @@ spec:
   capacity:
     storage: 12Gi
 --- 
+' > /etc/kubernetes/yaml/pvs-demo.yaml 
 开始创建：
 kubectl get pv
 kubectl apply -f pvs-demo.yaml 
 kubectl get pv
 
 pv定义完成，我们定义pvc
-[root@master volumes]# cat pod-vol-pvc.yaml 
-apiVersion: v1
+echo 'apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: mypvc
@@ -170,10 +169,10 @@ spec:
   - name: html
     persistentVolumeClaim:
       claimName: mypvc
-' > /etc/kubernetes/yaml/pvs-demo.yaml 
+' > /etc/kubernetes/yaml/pod-vol-pvc.yaml 
 
 创建资源
-kubectl apply -f pod-vol-pvc.yaml 
+kubectl apply -f /etc/kubernetes/yaml/pod-vol-pvc.yaml 
 kubectl get pv
 kubectl get pvc
 
