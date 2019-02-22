@@ -65,7 +65,7 @@ echo '/data/volumes/v1 192.168.8.0/24(rw,no_root_squash)
 查看PV的帮助文档: kuebctl explain pv
                  kubectl explain pv.spec.nfs
 创建yaml文件
-[root@master volumes]# cat pvs-demo.yaml 
+echo '
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -170,12 +170,11 @@ spec:
   - name: html
     persistentVolumeClaim:
       claimName: mypvc
- 
+' > /etc/kubernetes/yaml/pvs-demo.yaml 
+
 创建资源
 kubectl apply -f pod-vol-pvc.yaml 
 kubectl get pv
-
-我们查看一下PVC的状态
 kubectl get pvc
 
 权限是单路读写，多路读写
