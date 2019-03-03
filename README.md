@@ -1,5 +1,5 @@
 # kubernetes
-# HTTPS:  https://github.com/admin-zoujing/K8S.git    # SSH:  git@github.com:admin-zoujing/K8S.git
+# HTTPS:  https://github.com/admin-zoujing/K8S.git    #SSH:  git@github.com:admin-zoujing/K8S.git
 
 # 1...或在命令行上创建一个新的存储库
 # echo "#kubernetes" >> README.md
