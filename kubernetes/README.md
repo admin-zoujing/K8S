@@ -57,11 +57,9 @@ echo '/data/volumes/v1 192.168.8.0/24(rw,no_root_squash)
 /data/volumes/v5 192.168.8.0/24(rw,no_root_squash)
 ' > /etc/exports
 
- 
 重新加载配置：exportfs -arv
              showmount -e
 
- 
 查看PV的帮助文档: kuebctl explain pv
                  kubectl explain pv.spec.nfs
 创建yaml文件
