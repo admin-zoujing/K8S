@@ -18,7 +18,7 @@ mkdir -pv /data/volumes
 
 设置共享：
 echo '/data/volumes 192.168.8.0/24(rw,no_root_squash)' > /etc/exports
-systemctl start nfs
+systemctl start nfs &  systemctl enable nfs
 
 在node1和node2也安装nfs
 yum -y install nfs-utils 
@@ -47,7 +47,7 @@ kubectl apply -f /etc/kubernetes/yaml/pod-vol-nfs.yaml
 echo 'hello，word' > /data/volumes/index.html
 kubectl get pods -o wide
 curl 10.244.2.56
-思考：这是一种利用NFS方式挂载到k8S内部的方式，有点，pod挂掉后数据还在，适合做存储。前提是每个节点都安装NFS
+思考：这是一种利用NFS方式挂载到k8S内部的方式，pod挂掉后数据还在，适合做存储。前提是每个节点都安装NFS
 #####################################################
 开始做PV和PVC实验
 echo '/data/volumes/v1 192.168.8.0/24(rw,no_root_squash)
