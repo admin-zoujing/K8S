@@ -178,5 +178,3 @@ kubectl get pvc
 说明mypvc已经绑定到了pv002上了
 注意：如果定义的策略是return,将pv和pvc删除掉，数据也会存在目录上,一般情况下，我们只删除pv，而不会删除pvc
 只要pv和pvc绑定，我们就不能删除pvc
-
-
